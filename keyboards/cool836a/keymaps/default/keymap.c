@@ -1,41 +1,134 @@
-/* Copyright 2021 Ohashi
-* 
-* This program is free software: you can redistribute it and/or modify 
-* it under the terms of the GNU General Public License as published by 
-* the Free Software Foundation, either version 2 of the License, or 
-* (at your option) any later version. 
-* 
-* This program is distributed in the hope that it will be useful, 
-* but WITHOUT ANY WARRANTY; without even the implied warranty of 
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
-* GNU General Public License for more details. 
-* 
-* You should have received a copy of the GNU General Public License 
-* along with this program.  If not, see <http://www.gnu.org/licenses/>. 
-*/ 
-
-#include QMK_KEYBOARD_H
+#include "cool836A.h"
+#include "keymap_jp.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    /* Base */
-    [0] = LAYOUT(
-        KC_ESC,  LALT_T(KC_Q), KC_W,        KC_E, KC_R,        KC_T,        KC_Y,   KC_U,           KC_I, KC_O, KC_P,     KC_BSPC,
-        KC_LCTL, KC_A,         KC_S,        KC_D, KC_F,        KC_G,        KC_H,   KC_J,           KC_K, KC_L, KC_MINS,  KC_ENTER,
-        KC_LSFT, KC_Z,         GUI_T(KC_X), KC_C, LT(3, KC_V), LT(2, KC_B), KC_SPC, LT(1, KC_N), KC_M, KC_COMM, KC_DOT,   KC_SPC
-    ),
-    [1] = LAYOUT(
-        KC_TAB,  KC_1,    KC_2,    KC_3,    KC_4,   KC_5,       KC_6,    KC_7,     KC_8,    KC_9,    KC_0,   KC_BSPC,
-        KC_LCTL, KC_EXLM, KC_AT,   KC_HASH, KC_DLR, KC_PERC,    KC_PLUS, KC_MINS, KC_ASTR, KC_PSLS, KC_EQL,  KC_ENTER,
-        KC_LSFT, _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______, KC_SPC
-    ),
-    [2] = LAYOUT(
-        KC_TAB,  KC_F1,   KC_F2,   KC_F3,    KC_F4,   KC_F5,     KC_F6,   KC_F7,   KC_F8,   KC_F9,    KC_F10,  KC_BSPC,
-        KC_LCTL, KC_LBRC, KC_RBRC, KC_BSLS, KC_SCLN,  KC_COLN,   KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_QUES, KC_ENTER,
-        KC_LSFT, KC_UNDS, KC_PIPE, KC_CIRC, KC_TILD, _______,    _______, _______, _______, _______,  _______,  KC_SPC
-    ),
-    [3] = LAYOUT(
-        _______, _______, _______, _______, _______, _______,    _______, _______, _______, KC_LPRN, KC_RPRN, _______,
-        _______, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______
-    )
+
+	KEYMAP(
+		KC_ESC, KC_LCTL, KC_LSFT, KC_Y, KC_H, RSFT(KC_SPC), 
+		ALT_T(KC_Q), KC_A, KC_Z, KC_U, KC_J, LT(1, KC_N), 
+		KC_W, KC_S, GUI_T(KC_X), KC_I, KC_K, KC_M, 
+		KC_E, KC_D, KC_C, KC_O, KC_L, KC_COMM, 
+		KC_R, KC_F, LT(3, KC_V), KC_P, KC_MINS, KC_DOT, 
+		KC_T, KC_G, LT(2, KC_B), KC_BSPC, KC_ENT, KC_SPC),
+
+	KEYMAP(
+		KC_TAB, KC_LCTL, KC_LSFT, KC_6, KC_PLUS, KC_TRNS, 
+		KC_1, KC_EXLM, KC_TRNS, KC_7, KC_MINS, KC_TRNS, 
+		KC_2, KC_AT, KC_TRNS, KC_8, KC_ASTR, KC_TRNS, 
+		KC_3, KC_HASH, KC_TRNS, KC_9, KC_SLSH, KC_TRNS, 
+		KC_4, KC_DLR, KC_TRNS, KC_0, KC_EQL, KC_TRNS, 
+		KC_5, KC_PERC, KC_TRNS, KC_BSPC, KC_ENT, KC_SPC),
+
+	KEYMAP(
+		KC_TAB, KC_LCTL, KC_LSFT, KC_F6, KC_LEFT, KC_TRNS, 
+		KC_F1, KC_LBRC, KC_UNDS, KC_F7, KC_DOWN, KC_TRNS, 
+		KC_F2, KC_RBRC, KC_PIPE, KC_F8, KC_UP, KC_TRNS, 
+		KC_F3, KC_BSLS, KC_CIRC, KC_F9, KC_RGHT, KC_TRNS, 
+		KC_F4, KC_SCLN, KC_TILD, KC_F10, KC_QUES, KC_TRNS, 
+		KC_F5, KC_COLN, KC_TRNS, RESET, KC_ENT, KC_SPC),
+
+	KEYMAP(
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, RGB_SAD, KC_TRNS, 
+		KC_TRNS, RGB_TOG, KC_TRNS, KC_TRNS, RGB_VAI, KC_TRNS, 
+		KC_TRNS, RGB_MOD, KC_TRNS, KC_TRNS, RGB_VAD, KC_TRNS, 
+		KC_TRNS, RGB_HUI, KC_TRNS, KC_LPRN, KC_TRNS, KC_TRNS, 
+		KC_TRNS, RGB_HUD, KC_TRNS, KC_RPRN, KC_TRNS, KC_TRNS, 
+		KC_TRNS, RGB_SAI, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
+
+	KEYMAP(
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
+
+	KEYMAP(
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
+
+	KEYMAP(
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
+
+	KEYMAP(
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
+
+	KEYMAP(
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
+
+	KEYMAP(
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
+
+	KEYMAP(
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
+
+	KEYMAP(
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
+
+	KEYMAP(
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
+
+	KEYMAP(
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
+
+	KEYMAP(
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
+
+	KEYMAP(
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS)
+
 };
